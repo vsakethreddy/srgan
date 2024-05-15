@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload</title>
+  </head>
+  <body>
+    <h2>Upload an Image</h2>
+
+    <!-- Image preview -->
+    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+      <input type="file" name="image" accept="image/*" id="hiddenImageUpload" id="image"><br>
+    </form>
+
+    <img src="/input_image" alt="Image" id="image">
+<img src="/output_image" alt="Image" id="image">
+
+    {% block body %}
+        
+    {% endblock body %}
+
+    <script>
+      // Submit form when an image is selected
+      document
+        .getElementById("hiddenImageUpload")
+        .addEventListener("change", function () {
+          // Check if a file is selected
+          if (this.files.length > 0) {
+            // Submit the form
+            document.getElementById("uploadForm").submit();
+          }
+        });
+
+      var inputImage = document.getElementById("input_image");
+      if (imageLoaded(inputImage)) {
+          document.getElementById("input_image_container").style.display = "block";
+      }
+    x
+    </script>
+  </body>
+</html>
